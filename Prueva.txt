@@ -1,11 +1,1 @@
-<<<<<<< HEAD
-1yyyyyyeeeeeeeeeeeeeeeeeeeeeee
-
-
-hola
-=======
-yyyyyyeeeeeeeeeeeeeeeeeeeeeeee
-
-
-hola  soy ivan lopez
->>>>>>> 7b245e21bbffb2c3abb25f70216bf4134b0f7676
+edgar guapo
