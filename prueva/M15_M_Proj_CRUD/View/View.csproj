@@ -67,12 +67,6 @@
     <Compile Include="FormAddTrack.Designer.cs">
       <DependentUpon>FormAddTrack.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBAlb.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBAlb.Designer.cs">
-      <DependentUpon>FormBAlb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddAlb.resx">
@@ -83,9 +77,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddTrack.resx">
       <DependentUpon>FormAddTrack.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBAlb.resx">
-      <DependentUpon>FormBAlb.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
