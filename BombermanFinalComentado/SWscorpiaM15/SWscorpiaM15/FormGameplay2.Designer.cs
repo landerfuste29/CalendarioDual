@@ -39,6 +39,7 @@
             this.tbNom = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblColorRandom1 = new SWScorpiaM15.lblColorRandom();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,11 +130,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblColorRandom1
+            // 
+            this.lblColorRandom1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(73)))), ((int)(((byte)(214)))));
+            this.lblColorRandom1.Location = new System.Drawing.Point(362, 93);
+            this.lblColorRandom1.Name = "lblColorRandom1";
+            this.lblColorRandom1.Size = new System.Drawing.Size(147, 30);
+            this.lblColorRandom1.TabIndex = 6;
+            // 
             // FormGameplay2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 226);
+            this.Controls.Add(this.lblColorRandom1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.tbNom);
@@ -163,5 +173,6 @@
         private System.Windows.Forms.TextBox tbNom;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button button1;
+        private lblColorRandom lblColorRandom1;
     }
 }
