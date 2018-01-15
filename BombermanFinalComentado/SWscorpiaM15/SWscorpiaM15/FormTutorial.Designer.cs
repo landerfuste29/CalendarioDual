@@ -39,11 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
+
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-=======
+
             this.button1 = new System.Windows.Forms.Button();
->>>>>>> master
+
             ((System.ComponentModel.ISupportInitialize)(this.pbTutMov)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTecE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -150,7 +150,7 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "I si has agafat alguna bomba podràs posar-les davant teu amb la";
             // 
-<<<<<<< HEAD
+
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -160,7 +160,7 @@
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
-=======
+
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(234, 147);
@@ -169,18 +169,18 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
->>>>>>> master
+
             // 
             // FormTutorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 556);
-<<<<<<< HEAD
+
             this.Controls.Add(this.checkBox1);
-=======
+
             this.Controls.Add(this.button1);
->>>>>>> master
+
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pbTecE);
             this.Controls.Add(this.label6);
@@ -215,10 +215,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-<<<<<<< HEAD
+
         private System.Windows.Forms.CheckBox checkBox1;
-=======
+
         private System.Windows.Forms.Button button1;
->>>>>>> master
+
     }
 }
