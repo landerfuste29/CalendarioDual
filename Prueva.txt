@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-Esto es el master2
-=======
-Esto es el master
-1
->>>>>>> master
+Esto es master - Edgar
