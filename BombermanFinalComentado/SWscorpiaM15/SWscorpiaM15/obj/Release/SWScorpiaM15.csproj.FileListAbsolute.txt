@@ -17,3 +17,6 @@ C:\Users\Edgar\Documents\Visual Studio 2015\Projects\BombermanFinalComentado\SWs
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\bin\Release\SWScorpiaM15.application
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\obj\Release\SWScorpiaM15.exe.manifest
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\obj\Release\SWScorpiaM15.application
+C:\Users\iven\Documents\GitHub\CalendarioDual\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\bin\Release\SWScorpiaM15.exe.config
+C:\Users\iven\Documents\GitHub\CalendarioDual\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\obj\Release\SWScorpiaM15.exe
+C:\Users\iven\Documents\GitHub\CalendarioDual\BombermanFinalComentado\SWscorpiaM15\SWScorpiaM15\obj\Release\SWScorpiaM15.pdb
