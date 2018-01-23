@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCalendar\obj\Debug\
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\
 ProyectoCalendar
 none
 false
 DEBUG;TRACE
-C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCalendar\App.xaml
-11151548125
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\App.xaml
+41289707529
 
-91408163441
-131254293103
-MainWindow.xaml;
+161403287125
+15-993448404
+View\Calendario.xaml;View\MainWindow.xaml;View\NewEvent.xaml;View\Register.xaml;
 
-False
+True
 
