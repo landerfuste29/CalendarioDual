@@ -7,118 +7,60 @@
         dlgs:DialogBehavior.DialogViewModels="{Binding Dialogs}"
         xmlns:local="clr-namespace:ProyectoCalendar.View"
         mc:Ignorable="d"
-        Title="Calendario" Height="400" Width="650" UseLayoutRounding="False"
+        Title="Calendario" Height="454" Width="706" UseLayoutRounding="False"
         xmlns:View="clr-namespace:ProyectoCalendar.View"
         xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" >
+
     <Window.DataContext>
         <ViewModel:CalendarioViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="StyleCalanderDayButton" TargetType="{x:Type CalendarDayButton}">
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="Width" Value="40"></Setter>
+        </Style>
+        <Style x:Key="StyleCalanderButton" TargetType="{x:Type CalendarButton}">
+            <Setter Property="Height" Value="60"></Setter>
+            <Setter Property="Width" Value="60"></Setter>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style x:Key="StyleCalendar" TargetType="{x:Type Calendar}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Calendar}">
+                        <!-- Wrapping in ViewBox will enlarge calendar of that size.-->
+                        <Viewbox Height="400" Width="400" >
+                            <CalendarItem x:Name="PART_CalendarItem" 
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" FontStretch="Expanded"  >
+                            </CalendarItem>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CalendarDayButtonStyle"  Value="{StaticResource StyleCalanderDayButton}"></Setter>
+            <Setter Property="CalendarButtonStyle"  Value="{StaticResource StyleCalanderButton}"></Setter>
+            <Setter Property="Foreground" Value="#FF333333"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Green" Offset="0"/>
+                        <GradientStop Color="#9ce1fc" Offset="0.1"/>
+                        <GradientStop Color="#9ce1fc" Offset="0.1"/>
+                        <GradientStop Color="#20bcf9" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="146,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button0" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="201,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button1" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="256,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button2" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="311,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button3" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="366,35,0,0" VerticalAlignment="Top" Width="54">
-            <Button x:Name="button4" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="420,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button5" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="475,35,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button6" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="146,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button7" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="201,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button8" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="256,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button9" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="311,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button10" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="366,85,0,0" VerticalAlignment="Top" Width="54">
-            <Button x:Name="button11" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="420,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button12" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="475,85,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button13" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="146,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button14" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="201,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button15" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="256,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button16" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="311,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button17" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="366,135,0,0" VerticalAlignment="Top" Width="54">
-            <Button x:Name="button18" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="420,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button19" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="475,135,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button20" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="146,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button21" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="201,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button22" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="256,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button23" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="311,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button24" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="366,185,0,0" VerticalAlignment="Top" Width="54">
-            <Button x:Name="button25" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="420,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button26" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="475,185,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button27" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="146,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button28" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="201,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button29" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="256,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button30" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="311,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button31" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="366,235,0,0" VerticalAlignment="Top" Width="54">
-            <Button x:Name="button32" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="420,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button33" Content=""/>
-        </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="50" Margin="475,235,0,0" VerticalAlignment="Top" Width="55">
-            <Button x:Name="button34" Content=""/>
-        </Border>
         <Button x:Name="btnAddEvent" Content="Crear Evento" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GoToAddEvent}"/>
+        <Calendar Style="{StaticResource StyleCalendar}" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
     </Grid>
+
 </Window>
+    
+    
