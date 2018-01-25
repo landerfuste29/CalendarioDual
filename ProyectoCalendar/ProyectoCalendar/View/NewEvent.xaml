@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoCalendar.View"
         mc:Ignorable="d"
-        Title="NewEvent" Height="300" Width="473.5">
+        Title="NewEvent" Height="312" Width="481.5">
     <Grid Margin="0,0,2,0">
         <Label x:Name="lblTitle" Content="Registro de nuevo Evento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="323" FontSize="24" FontWeight="ExtraBlack"/>
         <Label x:Name="lblName" Content="Nombre:" HorizontalAlignment="Left" Margin="38,60,0,0" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="lblLocal" Content="Localización:" HorizontalAlignment="Left" Margin="38,88,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="lblType" Content="Tipo:" HorizontalAlignment="Left" Margin="38,117,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDesc" Content="Descripción:" HorizontalAlignment="Left" Margin="38,202,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,62,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
+        <Label x:Name="lblLocal" Content="Localización:" HorizontalAlignment="Left" Margin="38,90,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="lblType" Content="Tipo:" HorizontalAlignment="Left" Margin="38,120,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDesc" Content="Descripción:" HorizontalAlignment="Left" Margin="38,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
         <TextBox x:Name="tbLocal" HorizontalAlignment="Left" Height="23" Margin="164,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbType" HorizontalAlignment="Left" Height="23" Margin="164,118,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,203,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
-        <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="372,240,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="280,240,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="lblDate" Content="Fecha:" HorizontalAlignment="Left" Margin="38,144,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="164,146,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDate_Copy" Content="Nº Assis Max.:" HorizontalAlignment="Left" Margin="38,172,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="34"/>
+        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
+        <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="378,246,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="286,246,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="lblDate" Content="Fecha:" HorizontalAlignment="Left" Margin="38,150,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDate_Copy" Content="Nº Assis Max.:" HorizontalAlignment="Left" Margin="38,180,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="34"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="164,120,0,0" VerticalAlignment="Top" Width="102"/>
 
     </Grid>
 </Window>

@@ -29,7 +29,6 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Calendar}">
-                        <!-- Wrapping in ViewBox will enlarge calendar of that size.-->
                         <Viewbox Height="400" Width="400" >
                             <CalendarItem x:Name="PART_CalendarItem" 
                                 Background="{TemplateBinding Background}"
@@ -46,7 +45,7 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Green" Offset="0"/>
+                        <GradientStop Color="#089bd6" Offset="0"/>
                         <GradientStop Color="#9ce1fc" Offset="0.1"/>
                         <GradientStop Color="#9ce1fc" Offset="0.1"/>
                         <GradientStop Color="#20bcf9" Offset="1"/>

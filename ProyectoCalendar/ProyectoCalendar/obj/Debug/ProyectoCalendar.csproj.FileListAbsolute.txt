@@ -21,14 +21,6 @@ C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCa
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar.pdb
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\NewEvent.g.cs
 C:\Users\Edgar\Documents\Visual Studio 2015\Projects\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\NewEvent.baml
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar.csprojResolveAssemblyReference.cache
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\MainWindow.g.cs
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\NewEvent.g.cs
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\Register.g.cs
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\App.g.cs
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar_MarkupCompile.cache
-C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar_MarkupCompile.lref
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\ProyectoCalendar.exe.config
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\ProyectoCalendar.exe
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\ProyectoCalendar.pdb
@@ -37,7 +29,15 @@ C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\MvvmDialogs.pdb
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar.csprojResolveAssemblyReference.cache
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\Calendario.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\MainWindow.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\NewEvent.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\Register.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\App.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar_MarkupCompile.cache
+C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\ProyectoCalendar_MarkupCompile.lref
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\App.baml
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\Calendario.baml
 C:\Users\Edgar\Documents\GitHub\CalendarioDual\ProyectoCalendar\ProyectoCalendar\obj\Debug\View\MainWindow.baml
