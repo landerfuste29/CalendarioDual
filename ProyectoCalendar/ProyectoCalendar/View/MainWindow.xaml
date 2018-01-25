@@ -23,9 +23,9 @@
         <Button x:Name="btnLogIn" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="151,173,0,0" VerticalAlignment="Top" Width="82" Command="{Binding GoToCalendario}" Height="20" Grid.ColumnSpan="2"/>
         <CheckBox x:Name="chkSaveUser" Content="Recordar Usuario" HorizontalAlignment="Left" Margin="130,146,0,0" VerticalAlignment="Top" FontWeight="Black" Grid.ColumnSpan="2" Height="15" Width="122"/>
         <TextBox x:Name="tbUser" HorizontalAlignment="Left" Height="22" Margin="172,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbPasswd" HorizontalAlignment="Left" Height="23" Margin="172,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Label x:Name="lblUser" Content="Usuario:&#xD;&#xA;" HorizontalAlignment="Left" Margin="91,71,0,0" VerticalAlignment="Top" Height="32" FontWeight="Black" Width="59"/>
         <Label x:Name="lblPasswd" Content="Contraseña:&#xD;&#xA;" HorizontalAlignment="Left" Margin="91,100,0,0" VerticalAlignment="Top" Height="24" FontWeight="Black" Width="80"/>
         <Label x:Name="lblTitle" Content="Inicio de Sesión" HorizontalAlignment="Left" Margin="68,13,0,0" VerticalAlignment="Top" Width="248" FontSize="32" FontWeight="Bold" Grid.ColumnSpan="2" Height="53"/>
-        <PasswordBox x:Name="txtPasswd" HorizontalAlignment="Left" Margin="172,102,0,0" VerticalAlignment="Top" Width="120" Height="22" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

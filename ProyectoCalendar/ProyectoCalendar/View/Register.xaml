@@ -16,12 +16,12 @@
         <Label x:Name="lblPasswd" Content="Contrasenya:" HorizontalAlignment="Left" Margin="39,88,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblEmail" Content="Correo electrónico:" HorizontalAlignment="Left" Margin="39,119,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblEnt" Content="Entidad:" HorizontalAlignment="Left" Margin="39,150,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163"/>
-        <TextBox x:Name="tbEmail" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,123,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163"/>
-        <TextBox x:Name="tbEnt" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163"/>
+        <TextBox x:Name="tbName" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,61,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.nombre}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
+        <TextBox x:Name="tbPasswd" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,91,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.contraseña}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
+        <TextBox x:Name="tbEmail" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,123,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.email}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
+        <TextBox x:Name="tbEnt" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="165,154,0,0" TextWrapping="Wrap"  Text="{Binding EntidadToAdd.nombre}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
         <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="98,200,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-        <PasswordBox x:Name="txtPasswd" HorizontalAlignment="Left" Margin="165,92,0,0" VerticalAlignment="Top" Width="163" Height="22" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="0,200,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Command="{Binding AddConCommand}"/>
 
     </Grid>
 </Window>

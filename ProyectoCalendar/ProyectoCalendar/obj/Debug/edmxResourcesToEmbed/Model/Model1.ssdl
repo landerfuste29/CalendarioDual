@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CalendarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="idEntidad" />
+    </Key>
+    <Property Name="idEntidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="idEvento" />
+      <PropertyRef Name="Usuario_idUsuario" />
+      <PropertyRef Name="Usuario_Entidad_idEntidad" />
+    </Key>
+    <Property Name="idEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="puntuacio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="asistenciaMaxima" Type="int" />
+    <Property Name="localizacion" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="TipoEvento_idTipoEvento" Type="int" Nullable="false" />
+    <Property Name="Usuario_idUsuario" Type="int" Nullable="false" />
+    <Property Name="Usuario_Entidad_idEntidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoEvento">
+    <Key>
+      <PropertyRef Name="idTipoEvento" />
+    </Key>
+    <Property Name="idTipoEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="Entidad_idEntidad" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="contraseña" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="tipo" Type="int" Nullable="false" />
+    <Property Name="Entidad_idEntidad" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_Evento_TipoEvento1">
+    <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
+    <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEvento">
+        <PropertyRef Name="idTipoEvento" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="TipoEvento_idTipoEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Evento_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+        <PropertyRef Name="Entidad_idEntidad" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Usuario_idUsuario" />
+        <PropertyRef Name="Usuario_Entidad_idEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Usuario_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="idEntidad" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Entidad_idEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CalendarModelStoreContainer">
+    <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
+      <End Role="TipoEvento" EntitySet="TipoEvento" />
+      <End Role="Evento" EntitySet="Evento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Evento_Usuario1" Association="Self.fk_Evento_Usuario1">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Evento" EntitySet="Evento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Usuario_Entidad" Association="Self.fk_Usuario_Entidad">
+      <End Role="Entidad" EntitySet="Entidad" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
