@@ -1,0 +1,13 @@
+﻿<Application x:Class="ProyectoCalendar.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ProyectoCalendar"
+             xmlns:View="clr-namespace:ProyectoCalendar.View"
+             xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" 
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <View:Register x:Key="{x:Type ViewModel:RegisterViewModel}" x:Shared="False" />
+        <View:Calendario x:Key="{x:Type ViewModel:CalendarioViewModel}" x:Shared="False" />
+        <View:NewEvent x:Key="{x:Type ViewModel:NewEventViewModel}" x:Shared="False" />
+    </Application.Resources>
+</Application>
