@@ -10,7 +10,6 @@
         Title="Calendario" Height="454" Width="706" UseLayoutRounding="False"
         xmlns:View="clr-namespace:ProyectoCalendar.View"
         xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" >
-
     <Window.DataContext>
         <ViewModel:CalendarioViewModel/>
     </Window.DataContext>
@@ -57,7 +56,7 @@
     </Window.Resources>
     <Grid>
         <Button x:Name="btnAddEvent" Content="Crear Evento" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GoToAddEvent}"/>
-        <Calendar Style="{StaticResource StyleCalendar}" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
+        <Calendar Name="MainCalendar" Style="{StaticResource StyleCalendar}" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
     </Grid>
 
 </Window>

@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\CalendarioViewModel.cs" />
     <Compile Include="ViewModel\NewEventViewModel.cs" />
+    <Compile Include="ViewModel\RedLetterDayConverter.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="View\Calendario.xaml.cs">
       <DependentUpon>Calendario.xaml</DependentUpon>
