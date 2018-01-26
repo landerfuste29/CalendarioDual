@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoCalendar", "ProyectoCalendar\ProyectoCalendar.csproj", "{AC6F5D64-540F-4699-AF6A-FA78A43E5175}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmDialogs", "..\..\Documents\Visual Studio 2015\Projects\provaMVVM2\MvvmDialogs\MvvmDialogs.csproj", "{7BE06C50-5544-455F-886D-95322B468E25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC6F5D64-540F-4699-AF6A-FA78A43E5175}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6F5D64-540F-4699-AF6A-FA78A43E5175}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6F5D64-540F-4699-AF6A-FA78A43E5175}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6F5D64-540F-4699-AF6A-FA78A43E5175}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE06C50-5544-455F-886D-95322B468E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE06C50-5544-455F-886D-95322B468E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE06C50-5544-455F-886D-95322B468E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE06C50-5544-455F-886D-95322B468E25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
