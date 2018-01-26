@@ -34,7 +34,6 @@ namespace ProyectoCalendar.ViewModel
 
 
         private Entidad _entidadToAdd;
-        private Usuario _usrToRegist;
 
         private bool _textEnabled;
         public bool TextEnabled
@@ -42,10 +41,10 @@ namespace ProyectoCalendar.ViewModel
             get { return _textEnabled; }
             set { _textEnabled = value; }
         }
+
+        private Usuario _usrToRegist;
         public Usuario UsrToRegist
         {
-
-
             get { return (_usrToRegist); }
             set { _usrToRegist = value; NotifyPropertyChanged(); }
         }

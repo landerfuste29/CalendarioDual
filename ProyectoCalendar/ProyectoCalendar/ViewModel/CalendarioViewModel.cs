@@ -8,11 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ProyectoCalendar.Model;
 
 namespace ProyectoCalendar.ViewModel
 {
     class CalendarioViewModel : IUserDialogViewModel
     {
+        CalendarEntities db = new CalendarEntities();
         private ObservableCollection<IDialogViewModel> _Dialogs = new ObservableCollection<IDialogViewModel>();
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Collections.ObjectModel.ObservableCollection<IDialogViewModel> Dialogs { get { return _Dialogs; } }
@@ -39,11 +41,15 @@ namespace ProyectoCalendar.ViewModel
         //  public class GoToAddEvent
         public void calendarioView()
         {
+            // string lista="holaaa",
+
             this.Dialogs.Add(new NewEventViewModel()
             {
-                //  Title = "Esto es una mierda"
+                TipEventos = db.TipoEventoes.OrderBy(x => x.Nombre).ToList()
 
-            });
+            //  Title = "Esto es una mierda"
+
+        });
         }
 
         public ICommand GoToAddEvent
