@@ -15,19 +15,33 @@ using System.Windows.Controls;
 
 namespace ProyectoCalendar.ViewModel
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel :  INotifyPropertyChanged
     {
 
         private ObservableCollection<IDialogViewModel> _Dialogs = new ObservableCollection<IDialogViewModel>();
         CalendarEntities db = new CalendarEntities();
 
-        private Usuario _usrToLogin;
+        /*private Usuario _usrToLogin;
         public Usuario UsrToLogin
         {
             get { return (_usrToLogin); }
             set { _usrToLogin = value; NotifyPropertyChanged(); }
+        }*/
+        private string _mail;
+
+        public string Mail
+        {
+            get { return (_mail); }
+            set { _mail = value; NotifyPropertyChanged(); }
         }
 
+        private string _password;
+
+        public string Password
+        {
+            get { return (_password); }
+            set { _password = value; NotifyPropertyChanged(); }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public System.Collections.ObjectModel.ObservableCollection<IDialogViewModel> Dialogs { get { return _Dialogs; } }
@@ -85,23 +99,24 @@ namespace ProyectoCalendar.ViewModel
         }
         public void CalendarioView()
         {
-
             try {
-                UsrToLogin = UsrToLogin;
-            Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(UsrToLogin.email)).FirstOrDefault();
+
+               
+            Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(Mail)).FirstOrDefault();
 
             if (usEmExist != null)
             {
-                if (VerifyMd5Hash(UsrToLogin.contraseña, usEmExist.contraseña))
+                if (VerifyMd5Hash(Password, usEmExist.contraseña))
                 {
-                    this.Dialogs.Add(new CalendarioViewModel()
-                    {
-                        //  Title = "Esto es una mierda"
-                    });
-                }
+                        
+                        this.Dialogs.Add(new CalendarioViewModel()
+                        {
+                            //  Title = "Esto es una mierda"
+                        });
+                    }
                 else
                 {
-                    //Mensaje Password incorrecta
+                    //Mensaje Password incorrectaUsrToLogin
                 }
             }
             else
@@ -113,15 +128,6 @@ namespace ProyectoCalendar.ViewModel
         }
 
 
-        private void LoadUserLogin(object sender, TextChangedEventArgs e)
-        {
-            try
-            {
-                var textBox = sender as TextBox;
-                UsrToLogin.email = textBox.Text;
-            }
-            catch { }
-        }
 
         public ICommand GoToRegister
         {

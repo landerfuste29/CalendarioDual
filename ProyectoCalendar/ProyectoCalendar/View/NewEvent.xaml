@@ -12,15 +12,15 @@
         <Label x:Name="lblLocal" Content="Localización:" HorizontalAlignment="Left" Margin="38,90,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblType" Content="Tipo:" HorizontalAlignment="Left" Margin="38,120,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDesc" Content="Descripción:" HorizontalAlignment="Left" Margin="38,210,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,60,0,0" TextWrapping="Wrap" Text="{Binding TipEventos}" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbLocal" HorizontalAlignment="Left" Height="23" Margin="164,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,60,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.nombre}" VerticalAlignment="Top" Width="252"/>
+        <TextBox x:Name="tbLocal" HorizontalAlignment="Left" Height="23" Margin="164,90,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.localizacion}" VerticalAlignment="Top" Width="252"/>
+        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,210,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.descripcion}" VerticalAlignment="Top" Width="252"/>
         <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="378,246,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="286,246,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="286,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEventCommand}"/>
         <Label x:Name="lblDate" Content="Fecha:" HorizontalAlignment="Left" Margin="38,150,0,0" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDate_Copy" Content="Nº Assis Max.:" HorizontalAlignment="Left" Margin="38,180,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="34"/>
+        <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,180,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.asistenciaMaxima}" VerticalAlignment="Top" Width="34"/>
         <ComboBox x:Name="comboBox"  HorizontalAlignment="Left" Margin="164,120,0,0" VerticalAlignment="Top" Width="102" ItemsSource="{Binding TipEventos}" SelectedItem="{Binding SelectedEvento}"  DisplayMemberPath="Nombre" IsReadOnly="True"/>
 
 

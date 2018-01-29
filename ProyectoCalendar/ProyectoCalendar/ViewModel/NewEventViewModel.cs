@@ -21,7 +21,23 @@ namespace ProyectoCalendar.ViewModel
             set { _usrRegist = value; NotifyPropertyChanged(); }
         }
 
-        
+
+        private Evento _newEvento;
+
+        public Evento NewEvento
+        {
+            get
+            {
+                return _newEvento;
+            }
+            set
+            {
+                _newEvento = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
 
         private List<TipoEvento> _tipEventos;
         private TipoEvento _selectedEvento;
@@ -47,17 +63,47 @@ namespace ProyectoCalendar.ViewModel
             }
             set
             {
-                _selectedEvento = value; NotifyPropertyChanged();
+                _selectedEvento = value;
+                FillTipoEvID();
+                NotifyPropertyChanged();
             }
         }
 
+        public ICommand AddEventCommand
+        {
+            get { return new RelayCommand(AddEvent); }
+        }
+        private void FillTipoEvID()
+        {
+            NewEvento.TipoEvento_idTipoEvento = SelectedEvento.idTipoEvento;
+        }
 
+
+        public void AddEvent()
+        {
+            
+
+            if (this.OnAdd != null)
+                this.OnAdd(this);
+            else
+                Close();
+
+        }
+        public Action<NewEventViewModel> OnAdd { get; set; }
+        public void Close()
+        {
+            
+            if (this.DialogClosing != null)
+                this.DialogClosing(this, new EventArgs());
+
+        }
 
         public virtual bool IsModal { get { return true; } }
         public event EventHandler DialogClosing;
 
         public void RequestClose()
         {
+            
             this.DialogClosing(this, null);
         }
 

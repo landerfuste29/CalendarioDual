@@ -41,15 +41,20 @@ namespace ProyectoCalendar.ViewModel
         //  public class GoToAddEvent
         public void calendarioView()
         {
-            // string lista="holaaa",
-
+            Evento EventoToAdd = new Evento();
             this.Dialogs.Add(new NewEventViewModel()
             {
-                TipEventos = db.TipoEventoes.OrderBy(x => x.Nombre).ToList()
+                //cargar combobox de tipo de evento.
+                TipEventos = db.TipoEventoes.OrderBy(x => x.Nombre).ToList(),
+                NewEvento = EventoToAdd,
+                OnAdd = (sender) =>
+                    {
+                        
+                    //MostrarMensaje
+                        sender.Close();
+                    }
 
-            //  Title = "Esto es una mierda"
-
-        });
+            });
         }
 
         public ICommand GoToAddEvent
