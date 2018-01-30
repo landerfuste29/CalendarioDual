@@ -31,6 +31,10 @@ namespace ProyectoCalendar.ViewModel
         {
             get { return new RelayCommand(RequestClose); }
         }
+
+
+
+
         private string _title;
         public string Title
         {
@@ -46,16 +50,39 @@ namespace ProyectoCalendar.ViewModel
             {
                 //cargar combobox de tipo de evento.
                 TipEventos = db.TipoEventoes.OrderBy(x => x.Nombre).ToList(),
+                CboxHora = loadLisHoras(),
+                CboxMin = loadLisMin(),
                 NewEvento = EventoToAdd,
+
                 OnAdd = (sender) =>
                     {
-                        
-                    //MostrarMensaje
+                        EventoToAdd.nombre= "asd";
+
                         sender.Close();
                     }
 
             });
         }
+        public static List<int> loadLisHoras()
+        {
+            List<int> lista = new List<int>();
+            for (int i = 00; i <= 23; i++)
+            {
+                lista.Add(i);
+            }
+            return lista;
+        }
+
+        public static List<int> loadLisMin()
+        {
+            List<int> lista = new List<int>();
+            for (int i = 00; i <= 59; i++)
+            {
+                lista.Add(i);
+            }
+            return lista;
+        }
+
 
         public ICommand GoToAddEvent
         {

@@ -73,8 +73,20 @@ namespace ProyectoCalendar.ViewModel
         {
             get { return new RelayCommand(AddEvent); }
         }
+
+        private DateTime chosenDate = DateTime.Today;
+
+        public DateTime ChosenDate
+        {
+            get { return chosenDate; }
+            set
+            {
+                chosenDate = value;
+            }
+        }
         private void FillTipoEvID()
         {
+            
             NewEvento.TipoEvento_idTipoEvento = SelectedEvento.idTipoEvento;
         }
 
@@ -127,5 +139,85 @@ namespace ProyectoCalendar.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+
+
+
+        private void FillHora()
+        {
+            TimeSpan hora = new TimeSpan(SelectedCboxHora, 0, 0);
+            NewEvento.fecha = NewEvento.fecha + hora;
+        }
+
+        private void FillMin()
+        {
+
+            TimeSpan hora = new TimeSpan(0, SelectedCboxMin, 0);
+            NewEvento.fecha = NewEvento.fecha + hora;
+        }
+
+
+
+
+        private List<int> _cboxHora;
+        private int _selectedCboxHora;
+        public List<int> CboxHora
+        {
+            get
+            {
+                return _cboxHora;
+            }
+            set
+            {
+                _cboxHora = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public int SelectedCboxHora
+        {
+            get
+            {
+                return _selectedCboxHora;
+            }
+            set
+            {
+                _selectedCboxHora = value;
+                FillHora();
+                NotifyPropertyChanged();
+            }
+        }
+
+
+        
+
+        private List<int> _cboxMin;
+        private int _selectedCboxMin;
+        public List<int> CboxMin
+        {
+            get
+            {
+                return _cboxMin;
+            }
+            set
+            {
+                _cboxMin = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public int SelectedCboxMin
+        {
+            get
+            {
+                return _selectedCboxMin;
+            }
+            set
+            {
+                _selectedCboxMin = value;
+                FillMin();
+                NotifyPropertyChanged();
+            }
+        }
+
+
     }
 }

@@ -5,23 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoCalendar.View"
         mc:Ignorable="d"
-        Title="NewEvent" Height="312" Width="481.5">
+        Title="NewEvent" Height="312" Width="512.5">
     <Grid Margin="0,0,2,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="391*"/>
+            <ColumnDefinition Width="81*"/>
+        </Grid.ColumnDefinitions>
         <Label x:Name="lblTitle" Content="Registro de nuevo Evento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="323" FontSize="24" FontWeight="ExtraBlack"/>
         <Label x:Name="lblName" Content="Nombre:" HorizontalAlignment="Left" Margin="38,60,0,0" VerticalAlignment="Top" Width="58"/>
         <Label x:Name="lblLocal" Content="Localización:" HorizontalAlignment="Left" Margin="38,90,0,0" VerticalAlignment="Top" Width="81"/>
         <Label x:Name="lblType" Content="Tipo:" HorizontalAlignment="Left" Margin="38,120,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblDesc" Content="Descripción:" HorizontalAlignment="Left" Margin="38,210,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,60,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.nombre}" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbLocal" HorizontalAlignment="Left" Height="23" Margin="164,90,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.localizacion}" VerticalAlignment="Top" Width="252"/>
-        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,210,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.descripcion}" VerticalAlignment="Top" Width="252"/>
-        <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="378,246,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="164,60,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.nombre}" VerticalAlignment="Top" Width="252" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbLocal" HorizontalAlignment="Left" Height="23" Margin="164,90,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.localizacion}" VerticalAlignment="Top" Width="252" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbEnt" HorizontalAlignment="Left" Height="23" Margin="164,210,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.descripcion}" VerticalAlignment="Top" Width="252" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="378,246,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
         <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="286,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEventCommand}"/>
         <Label x:Name="lblDate" Content="Fecha:" HorizontalAlignment="Left" Margin="38,150,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top" DisplayDate="{Binding NewEvento.fecha}" SelectedDate="{Binding ChosenDate}" />
         <Label x:Name="lblDate_Copy" Content="Nº Assis Max.:" HorizontalAlignment="Left" Margin="38,180,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,180,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.asistenciaMaxima}" VerticalAlignment="Top" Width="34"/>
         <ComboBox x:Name="comboBox"  HorizontalAlignment="Left" Margin="164,120,0,0" VerticalAlignment="Top" Width="102" ItemsSource="{Binding TipEventos}" SelectedItem="{Binding SelectedEvento}"  DisplayMemberPath="Nombre" IsReadOnly="True"/>
+        <ComboBox x:Name="cbox_Hora" Margin="305,151,61,0" VerticalAlignment="Top" ItemsSource="{Binding CboxHora}" SelectedItem="{Binding SelectedCboxHora}"  IsReadOnly="True" />
+        <ComboBox x:Name="cbox_Min" HorizontalAlignment="Left" Margin="386,150,0,0" VerticalAlignment="Top" Width="50" ItemsSource="{Binding CboxMin}" SelectedItem="{Binding SelectedCboxMin}" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label x:Name="label" Content="H" HorizontalAlignment="Left" Margin="355,149,0,0" VerticalAlignment="Top" Width="20"/>
+        <Label x:Name="label1" Content="M" HorizontalAlignment="Left" Margin="25,148,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
     </Grid>
