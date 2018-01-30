@@ -14,6 +14,7 @@
     <Window.DataContext>
         <ViewModel:CalendarioViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
         <Style x:Key="StyleCalanderDayButton" TargetType="{x:Type CalendarDayButton}">
             <Setter Property="Height" Value="40"></Setter>
@@ -57,7 +58,21 @@
     </Window.Resources>
     <Grid>
         <Button x:Name="btnAddEvent" Content="Crear Evento" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GoToAddEvent}"/>
-        <Calendar Style="{StaticResource StyleCalendar}" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top"/>
+        <Calendar  x:Name="calend" Style="{StaticResource StyleCalendar}" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top">
+            <Calendar.CalendarDayButtonStyle>
+                <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
+                    <Style.Triggers>
+                        <Trigger Property="IsBlackedOut" Value="True">
+                            <Setter Property="Background" Value="Green"/>
+                            <Setter Property="ViewModel:CalenderHelper.IsBlackOutDisabled" Value="True"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Calendar.CalendarDayButtonStyle >
+            <Calendar.BlackoutDates >
+                <CalendarDateRange   Start=""  End=""/>
+            </Calendar.BlackoutDates>
+        </Calendar>
     </Grid>
 
 </Window>

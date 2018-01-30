@@ -103,6 +103,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CalendarioViewModel.cs" />
+    <Compile Include="ViewModel\CalenderHelper.cs" />
     <Compile Include="ViewModel\NewEventViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="View\Calendario.xaml.cs">

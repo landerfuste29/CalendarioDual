@@ -62,6 +62,5 @@ C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\bin\D
 C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\bin\Debug\System.Windows.Interactivity.xml
-C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\obj\Debug\MvvmDialogs.csprojResolveAssemblyReference.cache
 C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\obj\Debug\MvvmDialogs.dll
 C:\Users\iven\Documents\GitHub\CalendarioDual\ProyectoCalendar\MvvmDialogs\obj\Debug\MvvmDialogs.pdb

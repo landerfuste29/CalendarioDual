@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using ProyectoCalendar.Model;
+using System.Windows.Controls;
 
 namespace ProyectoCalendar.ViewModel
 {
@@ -34,10 +35,19 @@ namespace ProyectoCalendar.ViewModel
 
 
 
+        private Evento _listaData;
+        public Evento ListaData
+        {
+
+            get { return _listaData; }
+            set { _listaData = value; }
+        }
+
 
         private string _title;
         public string Title
         {
+
             get { return _title; }
             set { _title = value; }
         }
@@ -46,6 +56,7 @@ namespace ProyectoCalendar.ViewModel
         public void calendarioView()
         {
             Evento EventoToAdd = new Evento();
+            string asd = "";
             this.Dialogs.Add(new NewEventViewModel()
             {
                 //cargar combobox de tipo de evento.
@@ -56,7 +67,7 @@ namespace ProyectoCalendar.ViewModel
 
                 OnAdd = (sender) =>
                     {
-                        EventoToAdd.nombre= "asd";
+                        EventoToAdd.nombre = "asd";
 
                         sender.Close();
                     }
@@ -65,6 +76,7 @@ namespace ProyectoCalendar.ViewModel
         }
         public static List<int> loadLisHoras()
         {
+
             List<int> lista = new List<int>();
             for (int i = 00; i <= 23; i++)
             {
@@ -75,6 +87,7 @@ namespace ProyectoCalendar.ViewModel
 
         public static List<int> loadLisMin()
         {
+
             List<int> lista = new List<int>();
             for (int i = 00; i <= 59; i++)
             {
@@ -83,6 +96,10 @@ namespace ProyectoCalendar.ViewModel
             return lista;
         }
 
+        public static void loadCalendar()
+        {
+           
+        }
 
         public ICommand GoToAddEvent
         {
