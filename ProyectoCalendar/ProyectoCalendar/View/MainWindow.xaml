@@ -9,7 +9,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="469"
         xmlns:View="clr-namespace:ProyectoCalendar.View"
-        xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" >
+        xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" 
+        	Icon="{Binding Properties.Resources.patamon_ic_mvvm}">
+
     <Window.DataContext>
         <ViewModel:MainWindowViewModel/>
     </Window.DataContext>

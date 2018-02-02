@@ -12,6 +12,7 @@
         <AssociationConnector Association="CalendarModel.fk_Usuario_Entidad" ManuallyRouted="false" />
         <AssociationConnector Association="CalendarModel.fk_Evento_TipoEvento1" ManuallyRouted="false" />
         <AssociationConnector Association="CalendarModel.fk_Evento_Usuario1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CalendarModel.vw_Listar_Fecha" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

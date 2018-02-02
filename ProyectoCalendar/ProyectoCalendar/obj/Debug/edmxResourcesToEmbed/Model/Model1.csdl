@@ -104,5 +104,14 @@
       <End Role="Usuario" EntitySet="Usuarios" />
       <End Role="Evento" EntitySet="Eventoes" />
     </AssociationSet>
+    <EntitySet Name="vw_Listar_Fecha" EntityType="CalendarModel.vw_Listar_Fecha" />
   </EntityContainer>
+  <EntityType Name="vw_Listar_Fecha">
+    <Key>
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="idEntidad_User" />
+    </Key>
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

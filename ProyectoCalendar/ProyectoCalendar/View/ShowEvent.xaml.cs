@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace ProyectoCalendar.View
 {
     /// <summary>
-    /// Interaction logic for Calendario.xaml
+    /// Interaction logic for ShowEvent.xaml
     /// </summary>
-    public partial class Calendario : Window
+    public partial class ShowEvent : Window
     {
-        public Calendario()
+        public ShowEvent()
         {
             InitializeComponent();
-        }
-
-        private void calend_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -102,10 +102,14 @@
     <Compile Include="Model\Usuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\vw_Listar_Fecha.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\CalendarioViewModel.cs" />
     <Compile Include="ViewModel\CalenderHelper.cs" />
     <Compile Include="ViewModel\NewEventViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
+    <Compile Include="ViewModel\ShowEventViewModel.cs" />
     <Compile Include="View\Calendario.xaml.cs">
       <DependentUpon>Calendario.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,9 @@
     </Compile>
     <Compile Include="View\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShowEvent.xaml.cs">
+      <DependentUpon>ShowEvent.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Calendario.xaml">
       <SubType>Designer</SubType>
@@ -137,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShowEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +184,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\patamon_ic_mvvm.icon" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

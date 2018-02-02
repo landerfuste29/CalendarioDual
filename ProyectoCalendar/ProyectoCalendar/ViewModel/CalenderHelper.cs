@@ -12,6 +12,7 @@ namespace ProyectoCalendar.ViewModel
 {
     class CalenderHelper : DependencyObject
     {
+
         public static bool GetIsBlackOutDisabled(DependencyObject obj)
         {
             
@@ -29,11 +30,11 @@ namespace ProyectoCalendar.ViewModel
 
         private static void OnIsBlackOutDisabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            CalendarDayButton dayButton = d as CalendarDayButton;
-            
+           CalendarDayButton dayButton = d as CalendarDayButton;
             if (dayButton.IsLoaded)
             {
-                SetBlackout(dayButton, (bool)e.NewValue);
+                SetBlackout(dayButton, (bool)e.NewValue );
+
             }
             else
             {
@@ -43,12 +44,15 @@ namespace ProyectoCalendar.ViewModel
                 };
             }
         }
+        
 
-        static void SetBlackout(CalendarDayButton dayButton, bool collapsed)
+        static void SetBlackout(CalendarDayButton dayButton, bool collapsed  )
         {
+
             ControlTemplate template = dayButton.Template;
             Path blackoutPath = template.FindName("Blackout", dayButton) as Path;
             if (collapsed)
+                
                 blackoutPath.Visibility = System.Windows.Visibility.Collapsed;
             else
                 blackoutPath.Visibility = System.Windows.Visibility.Visible;

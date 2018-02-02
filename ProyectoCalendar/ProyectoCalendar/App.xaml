@@ -9,5 +9,6 @@
         <View:Register x:Key="{x:Type ViewModel:RegisterViewModel}" x:Shared="False" />
         <View:Calendario x:Key="{x:Type ViewModel:CalendarioViewModel}" x:Shared="False" />
         <View:NewEvent x:Key="{x:Type ViewModel:NewEventViewModel}" x:Shared="False" />
+        <View:ShowEvent x:Key="{x:Type ViewModel:ShowEventViewModel}" x:Shared="False" />
     </Application.Resources>
 </Application>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CalendarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CalendarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Entidad">
           <Key>
             <PropertyRef Name="idEntidad" />
@@ -47,6 +47,16 @@
           <Property Name="contraseña" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="tipo" Type="int" Nullable="false" />
           <Property Name="Entidad_idEntidad" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Calendar.dbo.vw_Listar_Fecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Listar_Fecha">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="idEntidad_User" />
+          </Key>
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="idEntidad_User" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="fk_Evento_TipoEvento1">
           <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
@@ -91,6 +101,12 @@
           <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Listar_Fecha" EntityType="Self.vw_Listar_Fecha" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Listar_Fecha].[fecha] AS [fecha], 
+    [vw_Listar_Fecha].[idEntidad_User] AS [idEntidad_User]
+    FROM [dbo].[vw_Listar_Fecha] AS [vw_Listar_Fecha]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
             <End Role="TipoEvento" EntitySet="TipoEvento" />
             <End Role="Evento" EntitySet="Evento" />
@@ -104,8 +120,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CalendarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -213,7 +228,16 @@
             <End Role="Usuario" EntitySet="Usuarios" />
             <End Role="Evento" EntitySet="Eventoes" />
           </AssociationSet>
+          <EntitySet Name="vw_Listar_Fecha" EntityType="CalendarModel.vw_Listar_Fecha" />
         </EntityContainer>
+        <EntityType Name="vw_Listar_Fecha">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="idEntidad_User" />
+          </Key>
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -261,6 +285,14 @@
                 <ScalarProperty Name="contraseña" ColumnName="contraseña" />
                 <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="Entidad_idEntidad" ColumnName="Entidad_idEntidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Listar_Fecha">
+            <EntityTypeMapping TypeName="CalendarModel.vw_Listar_Fecha">
+              <MappingFragment StoreEntitySet="vw_Listar_Fecha">
+                <ScalarProperty Name="idEntidad_User" ColumnName="idEntidad_User" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

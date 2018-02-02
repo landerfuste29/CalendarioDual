@@ -15,8 +15,10 @@ using System.Windows.Controls;
 
 namespace ProyectoCalendar.ViewModel
 {
-    class MainWindowViewModel :  INotifyPropertyChanged
+    class MainWindowViewModel : INotifyPropertyChanged
     {
+
+        Usuario userLoginApp = new Usuario();
 
         private ObservableCollection<IDialogViewModel> _Dialogs = new ObservableCollection<IDialogViewModel>();
         CalendarEntities db = new CalendarEntities();
@@ -99,30 +101,32 @@ namespace ProyectoCalendar.ViewModel
         }
         public void CalendarioView()
         {
-            try {
-
-               
-            Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(Mail)).FirstOrDefault();
-
-            if (usEmExist != null)
+            try
             {
-                if (VerifyMd5Hash(Password, usEmExist.contraseña))
+
+
+                Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(Mail)).FirstOrDefault();
+
+                if (usEmExist != null)
                 {
-                        
+                    if (VerifyMd5Hash(Password, usEmExist.contraseña))
+                    {
+                        userLoginApp = usEmExist;
                         this.Dialogs.Add(new CalendarioViewModel()
                         {
+                            UserCalApp = userLoginApp
                             //  Title = "Esto es una mierda"
                         });
                     }
+                    else
+                    {
+                        //Mensaje Password incorrectaUsrToLogin
+                    }
+                }
                 else
                 {
-                    //Mensaje Password incorrectaUsrToLogin
+                    //Mensaje El correo no existe
                 }
-            }
-            else
-            {
-                //Mensaje El correo no existe
-            }
             }
             catch { }
         }

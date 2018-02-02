@@ -22,7 +22,7 @@
         <Button x:Name="btnCanc" Content="Cancelar" HorizontalAlignment="Left" Margin="378,246,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
         <Button x:Name="btnCrea" Content="Crear" HorizontalAlignment="Left" Margin="286,246,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEventCommand}"/>
         <Label x:Name="lblDate" Content="Fecha:" HorizontalAlignment="Left" Margin="38,150,0,0" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top" DisplayDate="{Binding NewEvento.fecha}" SelectedDate="{Binding ChosenDate}" />
+        <DatePicker HorizontalAlignment="Left" Margin="164,150,0,0" VerticalAlignment="Top" DisplayDate="{Binding NewEvento.fecha}" SelectedDate="{Binding ChosenDate}"  />
         <Label x:Name="lblDate_Copy" Content="Nº Assis Max.:" HorizontalAlignment="Left" Margin="38,180,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbMaxAss" HorizontalAlignment="Left" Height="23" Margin="164,180,0,0" TextWrapping="Wrap" Text="{Binding NewEvento.asistenciaMaxima}" VerticalAlignment="Top" Width="34"/>
         <ComboBox x:Name="comboBox"  HorizontalAlignment="Left" Margin="164,120,0,0" VerticalAlignment="Top" Width="102" ItemsSource="{Binding TipEventos}" SelectedItem="{Binding SelectedEvento}"  DisplayMemberPath="Nombre" IsReadOnly="True"/>

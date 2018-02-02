@@ -74,14 +74,14 @@ namespace ProyectoCalendar.ViewModel
             get { return new RelayCommand(AddEvent); }
         }
 
-        private DateTime chosenDate = DateTime.Today;
+        private DateTime _chosenDate = new DateTime();
 
         public DateTime ChosenDate
         {
-            get { return chosenDate; }
+            get { return _chosenDate; }
             set
             {
-                chosenDate = value;
+                _chosenDate = value;
             }
         }
         private void FillTipoEvID()
@@ -145,15 +145,16 @@ namespace ProyectoCalendar.ViewModel
 
         private void FillHora()
         {
-            TimeSpan hora = new TimeSpan(SelectedCboxHora, 0, 0);
-            NewEvento.fecha = NewEvento.fecha + hora;
+
+            TimeSpan hora = new TimeSpan(SelectedCboxHora, SelectedCboxMin, 0);
+            NewEvento.fecha = ChosenDate + hora;
         }
 
         private void FillMin()
         {
 
-            TimeSpan hora = new TimeSpan(0, SelectedCboxMin, 0);
-            NewEvento.fecha = NewEvento.fecha + hora;
+            TimeSpan hora = new TimeSpan(SelectedCboxHora, SelectedCboxMin, 0);
+            NewEvento.fecha = ChosenDate + hora;
         }
 
 
