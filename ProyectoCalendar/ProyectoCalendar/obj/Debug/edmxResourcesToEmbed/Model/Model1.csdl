@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CalendarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Entidad">
+    <Key>
+      <PropertyRef Name="idEntidad" />
+    </Key>
+    <Property Name="idEntidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_Usuario_Entidad" FromRole="Entidad" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="idEvento" />
+      <PropertyRef Name="Usuario_idUsuario" />
+      <PropertyRef Name="Usuario_Entidad_idEntidad" />
+    </Key>
+    <Property Name="idEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="puntuacio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="asistenciaMaxima" Type="Int32" />
+    <Property Name="localizacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="TipoEvento_idTipoEvento" Type="Int32" Nullable="false" />
+    <Property Name="Usuario_idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="Usuario_Entidad_idEntidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoEvento" Relationship="Self.fk_Evento_TipoEvento1" FromRole="Evento" ToRole="TipoEvento" />
+    <NavigationProperty Name="Usuario" Relationship="Self.fk_Evento_Usuario1" FromRole="Evento" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="TipoEvento">
+    <Key>
+      <PropertyRef Name="idTipoEvento" />
+    </Key>
+    <Property Name="idTipoEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Eventoes" Relationship="Self.fk_Evento_TipoEvento1" FromRole="TipoEvento" ToRole="Evento" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+      <PropertyRef Name="Entidad_idEntidad" />
+    </Key>
+    <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contraseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="Entidad_idEntidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Entidad" Relationship="Self.fk_Usuario_Entidad" FromRole="Usuario" ToRole="Entidad" />
+    <NavigationProperty Name="Eventoes" Relationship="Self.fk_Evento_Usuario1" FromRole="Usuario" ToRole="Evento" />
+  </EntityType>
+  <Association Name="fk_Usuario_Entidad">
+    <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Entidad">
+        <PropertyRef Name="idEntidad" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="Entidad_idEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Evento_TipoEvento1">
+    <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
+    <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEvento">
+        <PropertyRef Name="idTipoEvento" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="TipoEvento_idTipoEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Evento_Usuario1">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="idUsuario" />
+        <PropertyRef Name="Entidad_idEntidad" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Usuario_idUsuario" />
+        <PropertyRef Name="Usuario_Entidad_idEntidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CalendarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Entidads" EntityType="Self.Entidad" />
+    <EntitySet Name="Eventoes" EntityType="Self.Evento" />
+    <EntitySet Name="TipoEventoes" EntityType="Self.TipoEvento" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="fk_Usuario_Entidad" Association="Self.fk_Usuario_Entidad">
+      <End Role="Entidad" EntitySet="Entidads" />
+      <End Role="Usuario" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
+      <End Role="TipoEvento" EntitySet="TipoEventoes" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Evento_Usuario1" Association="Self.fk_Evento_Usuario1">
+      <End Role="Usuario" EntitySet="Usuarios" />
+      <End Role="Evento" EntitySet="Eventoes" />
+    </AssociationSet>
+    <EntitySet Name="vw_Listar_Fecha" EntityType="CalendarModel.vw_Listar_Fecha" />
+  </EntityContainer>
+  <EntityType Name="vw_Listar_Fecha">
+    <Key>
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="idEntidad_User" />
+    </Key>
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>
