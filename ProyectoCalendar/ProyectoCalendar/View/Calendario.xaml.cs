@@ -11,20 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
 
 namespace ProyectoCalendar.View
 {
     /// <summary>
     /// Interaction logic for Calendario.xaml
     /// </summary>
-    public partial class Calendario : Window
+    public partial class Calendario : MetroWindow
     {
         public Calendario()
         {
             InitializeComponent();
         }
 
-        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        private void calend_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

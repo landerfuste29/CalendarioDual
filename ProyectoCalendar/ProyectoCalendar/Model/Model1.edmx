@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CalendarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Entidad">
+          <Key>
+            <PropertyRef Name="idEntidad" />
+          </Key>
+          <Property Name="idEntidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="idEvento" />
+            <PropertyRef Name="Usuario_idUsuario" />
+            <PropertyRef Name="Usuario_Entidad_idEntidad" />
+          </Key>
+          <Property Name="idEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="puntuacio" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="asistenciaMaxima" Type="int" />
+          <Property Name="localizacion" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion" Type="varchar" MaxLength="300" />
+          <Property Name="TipoEvento_idTipoEvento" Type="int" Nullable="false" />
+          <Property Name="Usuario_idUsuario" Type="int" Nullable="false" />
+          <Property Name="Usuario_Entidad_idEntidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoEvento">
+          <Key>
+            <PropertyRef Name="idTipoEvento" />
+          </Key>
+          <Property Name="idTipoEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="Entidad_idEntidad" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="contraseña" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="tipo" Type="int" Nullable="false" />
+          <Property Name="Entidad_idEntidad" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Calendar.dbo.vw_Listar_Fecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Listar_Fecha">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="idEntidad_User" />
+          </Key>
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="idEntidad_User" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Evento_TipoEvento1">
+          <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEvento">
+              <PropertyRef Name="idTipoEvento" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="TipoEvento_idTipoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Evento_Usuario1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="Entidad_idEntidad" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="Usuario_idUsuario" />
+              <PropertyRef Name="Usuario_Entidad_idEntidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Usuario_Entidad">
+          <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidad">
+              <PropertyRef Name="idEntidad" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Entidad_idEntidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CalendarModelStoreContainer">
+          <EntitySet Name="Entidad" EntityType="Self.Entidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Listar_Fecha" EntityType="Self.vw_Listar_Fecha" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Listar_Fecha].[fecha] AS [fecha], 
+    [vw_Listar_Fecha].[idEntidad_User] AS [idEntidad_User]
+    FROM [dbo].[vw_Listar_Fecha] AS [vw_Listar_Fecha]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
+            <End Role="TipoEvento" EntitySet="TipoEvento" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Evento_Usuario1" Association="Self.fk_Evento_Usuario1">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Evento" EntitySet="Evento" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Usuario_Entidad" Association="Self.fk_Usuario_Entidad">
+            <End Role="Entidad" EntitySet="Entidad" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CalendarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Entidad">
+          <Key>
+            <PropertyRef Name="idEntidad" />
+          </Key>
+          <Property Name="idEntidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.fk_Usuario_Entidad" FromRole="Entidad" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="idEvento" />
+            <PropertyRef Name="Usuario_idUsuario" />
+            <PropertyRef Name="Usuario_Entidad_idEntidad" />
+          </Key>
+          <Property Name="idEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="puntuacio" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="asistenciaMaxima" Type="Int32" />
+          <Property Name="localizacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="TipoEvento_idTipoEvento" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="Usuario_Entidad_idEntidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipoEvento" Relationship="Self.fk_Evento_TipoEvento1" FromRole="Evento" ToRole="TipoEvento" />
+          <NavigationProperty Name="Usuario" Relationship="Self.fk_Evento_Usuario1" FromRole="Evento" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoEvento">
+          <Key>
+            <PropertyRef Name="idTipoEvento" />
+          </Key>
+          <Property Name="idTipoEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Eventoes" Relationship="Self.fk_Evento_TipoEvento1" FromRole="TipoEvento" ToRole="Evento" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+            <PropertyRef Name="Entidad_idEntidad" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contraseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="Entidad_idEntidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Entidad" Relationship="Self.fk_Usuario_Entidad" FromRole="Usuario" ToRole="Entidad" />
+          <NavigationProperty Name="Eventoes" Relationship="Self.fk_Evento_Usuario1" FromRole="Usuario" ToRole="Evento" />
+        </EntityType>
+        <Association Name="fk_Usuario_Entidad">
+          <End Role="Entidad" Type="Self.Entidad" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Entidad">
+              <PropertyRef Name="idEntidad" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="Entidad_idEntidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Evento_TipoEvento1">
+          <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEvento">
+              <PropertyRef Name="idTipoEvento" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="TipoEvento_idTipoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Evento_Usuario1">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+              <PropertyRef Name="Entidad_idEntidad" />
+            </Principal>
+            <Dependent Role="Evento">
+              <PropertyRef Name="Usuario_idUsuario" />
+              <PropertyRef Name="Usuario_Entidad_idEntidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CalendarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Entidads" EntityType="Self.Entidad" />
+          <EntitySet Name="Eventoes" EntityType="Self.Evento" />
+          <EntitySet Name="TipoEventoes" EntityType="Self.TipoEvento" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="fk_Usuario_Entidad" Association="Self.fk_Usuario_Entidad">
+            <End Role="Entidad" EntitySet="Entidads" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
+            <End Role="TipoEvento" EntitySet="TipoEventoes" />
+            <End Role="Evento" EntitySet="Eventoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Evento_Usuario1" Association="Self.fk_Evento_Usuario1">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Evento" EntitySet="Eventoes" />
+          </AssociationSet>
+          <EntitySet Name="vw_Listar_Fecha" EntityType="CalendarModel.vw_Listar_Fecha" />
+        </EntityContainer>
+        <EntityType Name="vw_Listar_Fecha">
+          <Key>
+            <PropertyRef Name="fecha" />
+            <PropertyRef Name="idEntidad_User" />
+          </Key>
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CalendarModelStoreContainer" CdmEntityContainer="CalendarEntities">
+          <EntitySetMapping Name="Entidads">
+            <EntityTypeMapping TypeName="CalendarModel.Entidad">
+              <MappingFragment StoreEntitySet="Entidad">
+                <ScalarProperty Name="idEntidad" ColumnName="idEntidad" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eventoes">
+            <EntityTypeMapping TypeName="CalendarModel.Evento">
+              <MappingFragment StoreEntitySet="Evento">
+                <ScalarProperty Name="idEvento" ColumnName="idEvento" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="puntuacio" ColumnName="puntuacio" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="asistenciaMaxima" ColumnName="asistenciaMaxima" />
+                <ScalarProperty Name="localizacion" ColumnName="localizacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="TipoEvento_idTipoEvento" ColumnName="TipoEvento_idTipoEvento" />
+                <ScalarProperty Name="Usuario_idUsuario" ColumnName="Usuario_idUsuario" />
+                <ScalarProperty Name="Usuario_Entidad_idEntidad" ColumnName="Usuario_Entidad_idEntidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEventoes">
+            <EntityTypeMapping TypeName="CalendarModel.TipoEvento">
+              <MappingFragment StoreEntitySet="TipoEvento">
+                <ScalarProperty Name="idTipoEvento" ColumnName="idTipoEvento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="CalendarModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="Entidad_idEntidad" ColumnName="Entidad_idEntidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Listar_Fecha">
+            <EntityTypeMapping TypeName="CalendarModel.vw_Listar_Fecha">
+              <MappingFragment StoreEntitySet="vw_Listar_Fecha">
+                <ScalarProperty Name="idEntidad_User" ColumnName="idEntidad_User" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
