@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addUserCorrectMessage" xml:space="preserve">
+    <value>El usuario se ha creado correctamente.</value>
+  </data>
+  <data name="addUserCorrectTitle" xml:space="preserve">
+    <value>Gracias!</value>
+  </data>
   <data name="errorAddEvent" xml:space="preserve">
     <value>Error al añadir Evento</value>
   </data>
   <data name="errorAddEventMessage" xml:space="preserve">
     <value>Algun campo obligatorio esta vacio o es incorrecto.</value>
+  </data>
+  <data name="errorAddUserMailMassage" xml:space="preserve">
+    <value>El Mail introduido ya existe en la Base de Datos.</value>
+  </data>
+  <data name="errorAddUserMessage" xml:space="preserve">
+    <value>Algun campo obligatorio esta vacio o es incorrecto.</value>
+  </data>
+  <data name="errorAddUserTitle" xml:space="preserve">
+    <value>Error al Crear Usuario</value>
   </data>
   <data name="errorLoginMessage" xml:space="preserve">
     <value>El usuario y/o contraseña son incorrectos.</value>

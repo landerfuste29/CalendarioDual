@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoCalendar.View"
+        Background="#FF464444"
         mc:Ignorable="d"
         Title="Register" Height="263.767" Width="349.907"
          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
@@ -15,11 +16,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblTitle" Content="Registro de nuevo usaurio" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="323" FontSize="24" FontWeight="ExtraBlack"/>
-        <Label x:Name="lblName" Content="Nombre:" HorizontalAlignment="Left" Margin="16,58,0,0" VerticalAlignment="Top" Width="58"/>
-        <Label x:Name="lblPasswd" Content="Contrasenya:" HorizontalAlignment="Left" Margin="16,89,0,0" VerticalAlignment="Top" Width="81"/>
-        <Label x:Name="lblEmail" Content="Correo electrónico:" HorizontalAlignment="Left" Margin="16,120,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblEnt" Content="Entidad:" HorizontalAlignment="Left" Margin="16,151,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTitle" Foreground="White" Content="Registro de nuevo usaurio" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="323" FontSize="24" FontWeight="ExtraBlack"/>
+        <Label x:Name="lblName" Foreground="White" Content="Nombre:" HorizontalAlignment="Left" Margin="16,58,0,0" VerticalAlignment="Top" Width="58"/>
+        <Label x:Name="lblPasswd" Foreground="White" Content="Contrasenya:" HorizontalAlignment="Left" Margin="16,89,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label x:Name="lblEmail" Foreground="White" Content="Correo electrónico:" HorizontalAlignment="Left" Margin="16,120,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEnt" Foreground="White" Content="Entidad:" HorizontalAlignment="Left" Margin="16,151,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbName" Controls:TextBoxHelper.ClearTextButton="true" HorizontalAlignment="Left" Height="23" Margin="142,62,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.nombre}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
         <TextBox x:Name="tbPasswd" Controls:TextBoxHelper.ClearTextButton="true" HorizontalAlignment="Left" Height="23" Margin="142,92,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.contraseña}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>
         <TextBox x:Name="tbEmail" Controls:TextBoxHelper.ClearTextButton="true" HorizontalAlignment="Left" Height="23" Margin="142,124,0,0" TextWrapping="Wrap" Text="{Binding UsrToRegist.email}" VerticalAlignment="Top" Width="163" IsEnabled="{Binding TextEnabled}"/>

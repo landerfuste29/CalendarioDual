@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using System.Threading;
 
 namespace ProyectoCalendar.ViewModel
 {
@@ -69,8 +70,7 @@ namespace ProyectoCalendar.ViewModel
 
                     if (usEmExist == null)
                     {
-                        mensToEnv = "Todo OK";
-
+                      
                         try
                         {
                             if (entExist == null)
@@ -86,18 +86,28 @@ namespace ProyectoCalendar.ViewModel
                             usu_aux.contraseña = GetMd5Hash(usu_aux.contraseña);
                             db.Usuarios.Add(usu_aux);
                             db.SaveChanges();
+
+                            //Creado Correctamente                            
+                            showMessageError(Properties.Resources.addUserCorrectTitle, Properties.Resources.addUserCorrectMessage);
+                            sender.Close();
+
                         }
                         catch (Exception e)
                         {
+                            //Error al hacer el add BBDD
+                            showMessageErrorHere(Properties.Resources.errorAddUserTitle, Properties.Resources.errorAddUserMessage);
                         }
                     }
                     else
                     {
+                        //mail existe
+                        showMessageErrorHere(Properties.Resources.errorAddUserTitle, Properties.Resources.errorAddUserMailMassage);
                         mensToEnv = "NO OK!!";
 
                     }
                     //MostrarMensaje
-                    sender.Close();
+
+                    
                 }
 
             });
@@ -200,6 +210,14 @@ namespace ProyectoCalendar.ViewModel
         public async void showMessageError(String titulo, String error)
         {
             var metroWindow = (Application.Current.MainWindow as MetroWindow);
+            metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
+            await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
+        }
+        public async void showMessageErrorHere(String titulo, String error)
+        {
+            var metroWindow = (Application.Current.Windows.OfType<Window>()
+                                     .SingleOrDefault(x => x.IsActive) as MetroWindow);
+
             metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
             await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
         }

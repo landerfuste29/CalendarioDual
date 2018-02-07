@@ -1,5 +1,6 @@
 ﻿<Controls:MetroWindow x:Class="ProyectoCalendar.View.Calendario"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Background="#FF464444"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -50,10 +51,10 @@
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#089bd6" Offset="0"/>
-                        <GradientStop Color="#9ce1fc" Offset="0.1"/>
-                        <GradientStop Color="#9ce1fc" Offset="0.1"/>
-                        <GradientStop Color="#20bcf9" Offset="1"/>
+                        <GradientStop Color="#3c643c" Offset="0"/>
+                        <GradientStop Color="#427742" Offset="0"/>
+                        <GradientStop Color="#509a50" Offset="0.2"/>
+                        <GradientStop Color="#ffffff" Offset="2"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>

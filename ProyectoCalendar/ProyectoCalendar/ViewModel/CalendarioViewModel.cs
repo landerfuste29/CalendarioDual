@@ -83,7 +83,7 @@ namespace ProyectoCalendar.ViewModel
             //List<string> asdf = loadCalendar();
             Usuario userToEnt = UserCalApp;
             Evento EventoToAdd = new Evento();
-            Boolean contAddEvent= true;
+            //Boolean contAddEvent= true;
             this.Dialogs.Add(new NewEventViewModel()
             {
 
@@ -107,15 +107,12 @@ namespace ProyectoCalendar.ViewModel
 
                             db.Eventoes.Add(EventoToAdd);
                             db.SaveChanges();
+                            sender.Close();
                         }
                         catch (Exception e)
                         {
-                            contAddEvent = false;
-                            //Ventana mensaje
-                        }
-
-                        if (contAddEvent) { 
-                        sender.Close();
+                            //contAddEvent = false;
+                            showMessageError(Properties.Resources.errorAddEvent, Properties.Resources.errorAddEventMessage);
                         }
                     }
 
@@ -177,6 +174,14 @@ namespace ProyectoCalendar.ViewModel
                 //cargar combobox de tipo de evento.
 
             });
+        }
+        public async void showMessageError(String titulo, String error)
+        {
+            var metroWindow = (Application.Current.Windows.OfType<Window>()
+                                     .SingleOrDefault(x => x.IsActive) as MetroWindow);
+            
+            metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
+            await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
         }
     }
 }
