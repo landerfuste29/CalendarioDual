@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoCalendar.Properties
-{
-
-
+namespace ProyectoCalendar.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,132 @@ namespace ProyectoCalendar.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ProyectoCalendar.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El usuario se ha creado correctamente..
+        /// </summary>
+        internal static string addUserCorrectMessage {
+            get {
+                return ResourceManager.GetString("addUserCorrectMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gracias!.
+        /// </summary>
+        internal static string addUserCorrectTitle {
+            get {
+                return ResourceManager.GetString("addUserCorrectTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al añadir Evento.
+        /// </summary>
+        internal static string errorAddEvent {
+            get {
+                return ResourceManager.GetString("errorAddEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Algun campo obligatorio esta vacio o es incorrecto..
+        /// </summary>
+        internal static string errorAddEventMessage {
+            get {
+                return ResourceManager.GetString("errorAddEventMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El Mail introduido ya existe en la Base de Datos..
+        /// </summary>
+        internal static string errorAddUserMailMassage {
+            get {
+                return ResourceManager.GetString("errorAddUserMailMassage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Algun campo obligatorio esta vacio o es incorrecto..
+        /// </summary>
+        internal static string errorAddUserMessage {
+            get {
+                return ResourceManager.GetString("errorAddUserMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al Crear Usuario.
+        /// </summary>
+        internal static string errorAddUserTitle {
+            get {
+                return ResourceManager.GetString("errorAddUserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El usuario y/o contraseña son incorrectos..
+        /// </summary>
+        internal static string errorLoginMessage {
+            get {
+                return ResourceManager.GetString("errorLoginMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al iniciar sesión.
+        /// </summary>
+        internal static string errorLoginTitle {
+            get {
+                return ResourceManager.GetString("errorLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] patamon_ic_mvvm {
+            get {
+                object obj = ResourceManager.GetObject("patamon_ic_mvvm", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

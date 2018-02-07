@@ -12,11 +12,17 @@ using System.Windows.Input;
 using System.Security.Cryptography;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
+using System.Windows;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using System.Threading;
 
 namespace ProyectoCalendar.ViewModel
 {
-    class MainWindowViewModel :  INotifyPropertyChanged
+    class MainWindowViewModel : INotifyPropertyChanged
     {
+
+        Usuario userLoginApp = new Usuario();
 
         private ObservableCollection<IDialogViewModel> _Dialogs = new ObservableCollection<IDialogViewModel>();
         CalendarEntities db = new CalendarEntities();
@@ -64,8 +70,7 @@ namespace ProyectoCalendar.ViewModel
 
                     if (usEmExist == null)
                     {
-                        mensToEnv = "Todo OK";
-
+                      
                         try
                         {
                             if (entExist == null)
@@ -81,48 +86,62 @@ namespace ProyectoCalendar.ViewModel
                             usu_aux.contraseña = GetMd5Hash(usu_aux.contraseña);
                             db.Usuarios.Add(usu_aux);
                             db.SaveChanges();
+
+                            //Creado Correctamente                            
+                            showMessageError(Properties.Resources.addUserCorrectTitle, Properties.Resources.addUserCorrectMessage);
+                            sender.Close();
+
                         }
                         catch (Exception e)
                         {
+                            //Error al hacer el add BBDD
+                            showMessageErrorHere(Properties.Resources.errorAddUserTitle, Properties.Resources.errorAddUserMessage);
                         }
                     }
                     else
                     {
+                        //mail existe
+                        showMessageErrorHere(Properties.Resources.errorAddUserTitle, Properties.Resources.errorAddUserMailMassage);
                         mensToEnv = "NO OK!!";
 
                     }
                     //MostrarMensaje
-                    sender.Close();
+
+                    
                 }
 
             });
         }
         public void CalendarioView()
         {
-            try {
-
-               
-            Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(Mail)).FirstOrDefault();
-
-            if (usEmExist != null)
+            try
             {
-                if (VerifyMd5Hash(Password, usEmExist.contraseña))
+
+
+                Usuario usEmExist = db.Usuarios.Where(w => w.email.Equals(Mail)).FirstOrDefault();
+
+                if (usEmExist != null)
                 {
-                        
+                    if (VerifyMd5Hash(Password, usEmExist.contraseña))
+                    {
+                        userLoginApp = usEmExist;
                         this.Dialogs.Add(new CalendarioViewModel()
                         {
+                            UserCalApp = userLoginApp
                             //  Title = "Esto es una mierda"
                         });
                     }
+                    else
+                    {
+                        showMessageError(Properties.Resources.errorLoginTitle, Properties.Resources.errorLoginMessage);
+                        //Mensaje Password incorrectaUsrToLogin
+                    }
+                }
                 else
                 {
-                    //Mensaje Password incorrectaUsrToLogin
+                    showMessageError(Properties.Resources.errorLoginTitle, Properties.Resources.errorLoginMessage);
+                    //Mensaje correo erroneo
                 }
-            }
-            else
-            {
-                //Mensaje El correo no existe
-            }
             }
             catch { }
         }
@@ -186,6 +205,21 @@ namespace ProyectoCalendar.ViewModel
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+        // TODO: Mover en una clase aparte IVAN
+        public async void showMessageError(String titulo, String error)
+        {
+            var metroWindow = (Application.Current.MainWindow as MetroWindow);
+            metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
+            await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
+        }
+        public async void showMessageErrorHere(String titulo, String error)
+        {
+            var metroWindow = (Application.Current.Windows.OfType<Window>()
+                                     .SingleOrDefault(x => x.IsActive) as MetroWindow);
+
+            metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
+            await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
         }
 
     }

@@ -45,5 +45,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_Listar_Fecha">
+      <EntityTypeMapping TypeName="CalendarModel.vw_Listar_Fecha">
+        <MappingFragment StoreEntitySet="vw_Listar_Fecha">
+          <ScalarProperty Name="idEntidad_User" ColumnName="idEntidad_User" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

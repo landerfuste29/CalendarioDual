@@ -6,8 +6,22 @@
              xmlns:ViewModel="clr-namespace:ProyectoCalendar.ViewModel" 
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
-        <View:Register x:Key="{x:Type ViewModel:RegisterViewModel}" x:Shared="False" />
-        <View:Calendario x:Key="{x:Type ViewModel:CalendarioViewModel}" x:Shared="False" />
-        <View:NewEvent x:Key="{x:Type ViewModel:NewEventViewModel}" x:Shared="False" />
+        <ResourceDictionary>
+            <View:Register x:Key="{x:Type ViewModel:RegisterViewModel}" x:Shared="False" />
+            <View:Calendario x:Key="{x:Type ViewModel:CalendarioViewModel}" x:Shared="False" />
+            <View:NewEvent x:Key="{x:Type ViewModel:NewEventViewModel}" x:Shared="False" />
+            <View:ShowEvent x:Key="{x:Type ViewModel:ShowEventViewModel}" x:Shared="False" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary  Source= "pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml"  />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Emerald.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary  Source = "pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml"  />
+                <ResourceDictionary  Source = "pack://application:,,,/MahApps.Metro;component/Styles/FlatSlider.xaml"  />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

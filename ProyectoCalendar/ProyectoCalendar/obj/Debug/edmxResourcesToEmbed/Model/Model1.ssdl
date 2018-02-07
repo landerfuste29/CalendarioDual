@@ -43,6 +43,16 @@
     <Property Name="tipo" Type="int" Nullable="false" />
     <Property Name="Entidad_idEntidad" Type="int" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Calendar.dbo.vw_Listar_Fecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Listar_Fecha">
+    <Key>
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="idEntidad_User" />
+    </Key>
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idEntidad_User" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="fk_Evento_TipoEvento1">
     <End Role="TipoEvento" Type="Self.TipoEvento" Multiplicity="1" />
     <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
@@ -86,6 +96,12 @@
     <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_Listar_Fecha" EntityType="Self.vw_Listar_Fecha" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Listar_Fecha].[fecha] AS [fecha], 
+    [vw_Listar_Fecha].[idEntidad_User] AS [idEntidad_User]
+    FROM [dbo].[vw_Listar_Fecha] AS [vw_Listar_Fecha]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="fk_Evento_TipoEvento1" Association="Self.fk_Evento_TipoEvento1">
       <End Role="TipoEvento" EntitySet="TipoEvento" />
       <End Role="Evento" EntitySet="Evento" />
