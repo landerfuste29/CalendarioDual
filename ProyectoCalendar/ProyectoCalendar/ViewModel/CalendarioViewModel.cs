@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using ProyectoCalendar.Model;
 using System.Windows.Controls;
+using System.Windows;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace ProyectoCalendar.ViewModel
 {
@@ -72,7 +75,7 @@ namespace ProyectoCalendar.ViewModel
         //  public class GoToAddEvent
         public void calendarioView()
         {
-            if (DateSelect.ToString().Equals("01-01-01 00:00:00"))
+            if (DateSelect.ToString().Contains("01-01-01"))
             {
 
                 DateSelect = DateTime.Today;
@@ -80,7 +83,7 @@ namespace ProyectoCalendar.ViewModel
             //List<string> asdf = loadCalendar();
             Usuario userToEnt = UserCalApp;
             Evento EventoToAdd = new Evento();
-            string asd = "";
+            //Boolean contAddEvent= true;
             this.Dialogs.Add(new NewEventViewModel()
             {
 
@@ -101,14 +104,19 @@ namespace ProyectoCalendar.ViewModel
                             EventoToAdd.Usuario_idUsuario = EventoToAdd.Usuario.idUsuario;
                             EventoToAdd.Usuario_Entidad_idEntidad = EventoToAdd.Usuario.Entidad_idEntidad;
 
+                            if (EventoToAdd.nombre != "" && EventoToAdd.localizacion != "")
+                            {
+                                db.Eventoes.Add(EventoToAdd);
+                                db.SaveChanges();
+                                sender.Close();
 
-                            db.Eventoes.Add(EventoToAdd);
-                            db.SaveChanges();
+                            }
                         }
                         catch (Exception e)
                         {
+                            //contAddEvent = false;
+                            showMessageError(Properties.Resources.errorAddEvent, Properties.Resources.errorAddEventMessage);
                         }
-                        sender.Close();
                     }
 
             });
@@ -170,6 +178,13 @@ namespace ProyectoCalendar.ViewModel
 
             });
         }
-
+        public async void showMessageError(String titulo, String error)
+        {
+            var metroWindow = (Application.Current.Windows.OfType<Window>()
+                                     .SingleOrDefault(x => x.IsActive) as MetroWindow);
+            
+            metroWindow.MetroDialogOptions.ColorScheme = MetroDialogColorScheme.Theme;
+            await metroWindow.ShowMessageAsync(titulo, error, MessageDialogStyle.Affirmative, metroWindow.MetroDialogOptions);
+        }
     }
 }

@@ -11,13 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
 
 namespace ProyectoCalendar.View
 {
     /// <summary>
     /// Interaction logic for ShowEvent.xaml
     /// </summary>
-    public partial class ShowEvent : Window
+    public partial class ShowEvent : MetroWindow
     {
         public ShowEvent()
         {

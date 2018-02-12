@@ -9,6 +9,13 @@ using System.Windows.Input;
 using ProyectoCalendar.Model;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs; 
+using System.Windows;
+using System.Collections.ObjectModel;
+using MahApps.Metro.Behaviours;
+
+
 
 namespace ProyectoCalendar.ViewModel
 {
@@ -218,7 +225,7 @@ namespace ProyectoCalendar.ViewModel
                 NotifyPropertyChanged();
             }
         }
-
+        
 
     }
 }

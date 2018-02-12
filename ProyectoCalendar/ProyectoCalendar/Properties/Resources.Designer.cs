@@ -61,6 +61,87 @@ namespace ProyectoCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El usuario se ha creado correctamente..
+        /// </summary>
+        internal static string addUserCorrectMessage {
+            get {
+                return ResourceManager.GetString("addUserCorrectMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gracias!.
+        /// </summary>
+        internal static string addUserCorrectTitle {
+            get {
+                return ResourceManager.GetString("addUserCorrectTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al añadir Evento.
+        /// </summary>
+        internal static string errorAddEvent {
+            get {
+                return ResourceManager.GetString("errorAddEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Algun campo obligatorio esta vacio o es incorrecto..
+        /// </summary>
+        internal static string errorAddEventMessage {
+            get {
+                return ResourceManager.GetString("errorAddEventMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El Mail introduido ya existe en la Base de Datos..
+        /// </summary>
+        internal static string errorAddUserMailMassage {
+            get {
+                return ResourceManager.GetString("errorAddUserMailMassage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Algun campo obligatorio esta vacio o es incorrecto..
+        /// </summary>
+        internal static string errorAddUserMessage {
+            get {
+                return ResourceManager.GetString("errorAddUserMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al Crear Usuario.
+        /// </summary>
+        internal static string errorAddUserTitle {
+            get {
+                return ResourceManager.GetString("errorAddUserTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El usuario y/o contraseña son incorrectos..
+        /// </summary>
+        internal static string errorLoginMessage {
+            get {
+                return ResourceManager.GetString("errorLoginMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al iniciar sesión.
+        /// </summary>
+        internal static string errorLoginTitle {
+            get {
+                return ResourceManager.GetString("errorLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] patamon_ic_mvvm {
