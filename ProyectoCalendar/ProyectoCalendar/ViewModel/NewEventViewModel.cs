@@ -43,7 +43,20 @@ namespace ProyectoCalendar.ViewModel
                 NotifyPropertyChanged();
             }
         }
+        //texEve
+        private String _texEve;
 
+        public String TexEve
+        {
+            get
+            {
+                return _texEve;
+            }
+            set
+            {
+                _texEve = value;
+            }
+        }
 
 
         private List<TipoEvento> _tipEventos;

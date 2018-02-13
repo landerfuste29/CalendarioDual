@@ -132,6 +132,7 @@ namespace ProyectoCalendar.ViewModel
                     if (VerifyMd5Hash(Password, usEmExist.contraseña))
                     {
                         userLoginApp = usEmExist;
+                        UserLogin.userLog = userLoginApp;
                         this.Dialogs.Add(new CalendarioViewModel()
                         {
                             UserCalApp = userLoginApp

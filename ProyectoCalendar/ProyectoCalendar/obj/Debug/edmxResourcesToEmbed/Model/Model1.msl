@@ -53,5 +53,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="vw_Listar_Eventos">
+      <EntityTypeMapping TypeName="CalendarModel.vw_Listar_Eventos">
+        <MappingFragment StoreEntitySet="vw_Listar_Eventos">
+          <ScalarProperty Name="idEv" ColumnName="idEv" />
+          <ScalarProperty Name="idEntidad_User" ColumnName="idEntidad_User" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

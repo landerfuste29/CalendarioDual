@@ -44,13 +44,29 @@
     <Property Name="Entidad_idEntidad" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'Calendar.dbo.vw_Listar_Eventos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_Listar_Eventos">
+    <Key>
+      <PropertyRef Name="idEv" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="idEntidad_User" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="idEv" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Categoria" Type="varchar" MaxLength="50" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="idEntidad_User" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'Calendar.dbo.vw_Listar_Fecha' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="vw_Listar_Fecha">
     <Key>
-      <PropertyRef Name="fecha" />
       <PropertyRef Name="idEntidad_User" />
+      <PropertyRef Name="fecha" />
     </Key>
-    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
     <Property Name="idEntidad_User" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="fk_Evento_TipoEvento1">
@@ -96,6 +112,16 @@ warning 6002: The table/view 'Calendar.dbo.vw_Listar_Fecha' does not have a prim
     <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoEvento" EntityType="Self.TipoEvento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_Listar_Eventos" EntityType="Self.vw_Listar_Eventos" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_Listar_Eventos].[idEv] AS [idEv], 
+    [vw_Listar_Eventos].[Nombre] AS [Nombre], 
+    [vw_Listar_Eventos].[Categoria] AS [Categoria], 
+    [vw_Listar_Eventos].[Descripcion] AS [Descripcion], 
+    [vw_Listar_Eventos].[fecha] AS [fecha], 
+    [vw_Listar_Eventos].[idEntidad_User] AS [idEntidad_User]
+    FROM [dbo].[vw_Listar_Eventos] AS [vw_Listar_Eventos]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="vw_Listar_Fecha" EntityType="Self.vw_Listar_Fecha" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [vw_Listar_Fecha].[fecha] AS [fecha], 

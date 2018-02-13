@@ -108,7 +108,11 @@
     <Compile Include="Model\TipoEvento.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UserLogin.cs" />
     <Compile Include="Model\Usuario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\vw_Listar_Eventos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\vw_Listar_Fecha.cs">

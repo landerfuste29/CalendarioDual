@@ -30,5 +30,6 @@ namespace ProyectoCalendar.Model
         public virtual DbSet<TipoEvento> TipoEventoes { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<vw_Listar_Fecha> vw_Listar_Fecha { get; set; }
+        public virtual DbSet<vw_Listar_Eventos> vw_Listar_Eventos { get; set; }
     }
 }

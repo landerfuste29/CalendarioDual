@@ -93,6 +93,7 @@ namespace ProyectoCalendar.ViewModel
                 CboxMin = loadLisMin(),
                 NewEvento = EventoToAdd,
                 ChosenDate = DateSelect,
+                TexEve = "Crear",
 
                 OnAdd = (sender) =>
                     {
@@ -170,9 +171,15 @@ namespace ProyectoCalendar.ViewModel
 
         public void ShowEventView()
         {
+            if (DateSelect.ToString().Contains("01-01-01"))
+            {
+
+                DateSelect = DateTime.Today;
+            }
             //List<string> asdf = loadCalendar();
             this.Dialogs.Add(new ShowEventViewModel()
             {
+                DateSelecToCal = DateSelect
 
                 //cargar combobox de tipo de evento.
 

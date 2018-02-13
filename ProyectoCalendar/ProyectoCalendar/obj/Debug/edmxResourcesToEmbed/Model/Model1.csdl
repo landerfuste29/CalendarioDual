@@ -105,13 +105,28 @@
       <End Role="Evento" EntitySet="Eventoes" />
     </AssociationSet>
     <EntitySet Name="vw_Listar_Fecha" EntityType="CalendarModel.vw_Listar_Fecha" />
+    <EntitySet Name="vw_Listar_Eventos" EntityType="CalendarModel.vw_Listar_Eventos" />
   </EntityContainer>
   <EntityType Name="vw_Listar_Fecha">
     <Key>
       <PropertyRef Name="fecha" />
       <PropertyRef Name="idEntidad_User" />
     </Key>
-    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_Listar_Eventos">
+    <Key>
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="fecha" />
+      <PropertyRef Name="idEntidad_User" />
+      <PropertyRef Name="idEv" />
+    </Key>
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idEntidad_User" Type="Int32" Nullable="false" />
+    <Property Name="idEv" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>
