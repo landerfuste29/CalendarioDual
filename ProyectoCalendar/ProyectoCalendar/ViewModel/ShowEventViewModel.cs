@@ -142,27 +142,32 @@ namespace ProyectoCalendar.ViewModel
         public void newEventView()
         {
             //List<string> asdf = loadCalendar();
-            Evento EventoToAdd = db.Eventoes.Where(w => w.idEvento == EventSelect.idEv).FirstOrDefault(); 
+            Evento EventoToMod = db.Eventoes.Where(w => w.idEvento == EventSelect.idEv).FirstOrDefault();
             //Boolean contAddEvent= true;
             this.Dialogs.Add(new NewEventViewModel()
             {
 
                 //cargar combobox de tipo de evento.
-                NewEvento = EventoToAdd,
-                TexEve ="Modificar", 
-
+                TipEventos = db.TipoEventoes.OrderBy(x => x.Nombre).ToList(),
+                CboxHora = loadLisHoras(),
+                CboxMin = loadLisMin(),
+                NewEvento = EventoToMod,
+                TexEve = "Modificar",
+                ChosenDate = EventoToMod.fecha,
+                SelectedEvento = EventoToMod.TipoEvento,
+                SelectedCboxHora = EventoToMod.fecha.Hour,
+                SelectedCboxMin = EventoToMod.fecha.Minute,
                 OnAdd = (sender) =>
                 {
                     try
                     {
-                        EventoToAdd.TipoEvento = db.TipoEventoes.Where(w => w.idTipoEvento.Equals(EventoToAdd.TipoEvento_idTipoEvento)).FirstOrDefault();
-                        EventoToAdd.idEvento = db.TipoEventoes.Where(w => w.idTipoEvento.Equals(EventoToAdd.TipoEvento_idTipoEvento)).Select(s => s.idTipoEvento).FirstOrDefault();
-                        EventoToAdd.Usuario_idUsuario = EventoToAdd.Usuario.idUsuario;
-                        EventoToAdd.Usuario_Entidad_idEntidad = EventoToAdd.Usuario.Entidad_idEntidad;
+                        EventoToMod.TipoEvento = db.TipoEventoes.Where(w => w.idTipoEvento.Equals(EventoToMod.TipoEvento_idTipoEvento)).FirstOrDefault();
+                        EventoToMod.idEvento = db.TipoEventoes.Where(w => w.idTipoEvento.Equals(EventoToMod.TipoEvento_idTipoEvento)).Select(s => s.idTipoEvento).FirstOrDefault();
+                        EventoToMod.Usuario_idUsuario = EventoToMod.Usuario.idUsuario;
+                        EventoToMod.Usuario_Entidad_idEntidad = EventoToMod.Usuario.Entidad_idEntidad;
 
-                        if (EventoToAdd.nombre != "" && EventoToAdd.localizacion != "")
+                        if (EventoToMod.nombre != "" && EventoToMod.localizacion != "")
                         {
-                            db.Eventoes.Add(EventoToAdd);
                             db.SaveChanges();
                             sender.Close();
 
@@ -171,13 +176,37 @@ namespace ProyectoCalendar.ViewModel
                     catch (Exception e)
                     {
                         //contAddEvent = false;
-                       // showMessageError(Properties.Resources.errorAddEvent, Properties.Resources.errorAddEventMessage);
+                        // showMessageError(Properties.Resources.errorAddEvent, Properties.Resources.errorAddEventMessage);
+                    }
+                    finally {
+                        EventoToMod = null;
                     }
                 }
 
             });
         }
 
+        public static List<int> loadLisHoras()
+        {
+
+            List<int> lista = new List<int>();
+            for (int i = 00; i <= 23; i++)
+            {
+                lista.Add(i);
+            }
+            return lista;
+        }
+
+        public static List<int> loadLisMin()
+        {
+
+            List<int> lista = new List<int>();
+            for (int i = 00; i <= 59; i++)
+            {
+                lista.Add(i);
+            }
+            return lista;
+        }
 
     }
 }

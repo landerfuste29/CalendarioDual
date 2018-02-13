@@ -19,8 +19,7 @@ using MahApps.Metro.Behaviours;
 
 namespace ProyectoCalendar.ViewModel
 {
-    class NewEventViewModel : IUserDialogViewModel
-    {
+    class NewEventViewModel : IUserDialogViewModel    {
         private Usuario _usrRegist;
         public Usuario UsrRegist
         {
@@ -238,7 +237,21 @@ namespace ProyectoCalendar.ViewModel
                 NotifyPropertyChanged();
             }
         }
-        
+
+
+        public ICommand CancelCommand { get { return new RelayCommand(Cancel); } }
+        protected virtual void Cancel()
+        {
+            SelectedCboxHora = 0;
+            SelectedCboxMin = 0;
+
+            if (this.OnCancel != null)
+                this.OnCancel(this);
+            else
+                Close();
+        }
+        public Action<NewEventViewModel> OnCancel { get; set; }
+
 
     }
 }

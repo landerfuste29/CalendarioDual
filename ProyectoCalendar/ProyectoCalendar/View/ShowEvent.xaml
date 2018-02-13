@@ -20,22 +20,23 @@
         <ViewModel:ShowEventViewModel/>
     </Window.DataContext>
     <Grid>
-        <Button x:Name="btnModificar" FontWeight="ExtraBlack" Foreground="White" FontSize="14" Background="#33a133" Content="Modificar" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Width="136"  Command="{Binding GoToModEvent}" Height="58"/>
-        <Button x:Name="btnBorrar" FontWeight="ExtraBlack" Foreground="White" FontSize="14" Background="#33a133" Content="Borrar" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="136" Height="58"/>
+        <Button x:Name="btnModificar" FontWeight="ExtraBlack" Foreground="White" FontSize="14" Background="#33a133" Content="Modificar" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="136"  Command="{Binding GoToModEvent}" Height="58"/>
+        <Button x:Name="btnBorrar" FontWeight="ExtraBlack" Foreground="White" FontSize="14" Background="#33a133" Content="Borrar" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="136" Height="58"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="163,10,0,0" VerticalAlignment="Top" Height="403" Width="260" IsReadOnly="True" ColumnWidth="*" AutoGenerateColumns="False"
-                  ItemsSource="{Binding ListaFechas}" SelectedItem="{Binding DateSelect}" Background="#FF938B8B" SelectionMode="Single" >
+                  ItemsSource="{Binding ListaFechas}" SelectedItem="{Binding DateSelect}" Background="#FF7A7373" SelectionMode="Single" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Date}" ClipboardContentBinding="{x:Null}" Header="Fecha"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dgvEventos" HorizontalAlignment="Left" Margin="428,10,0,0" VerticalAlignment="Top" Height="403" IsReadOnly="True" Width="260" ColumnWidth="*" AutoGenerateColumns="False"
-                  ItemsSource="{Binding ListaEventos}" SelectedItem="{Binding EventSelect}" Background="#FF938B8B" SelectionMode="Single">
+                  ItemsSource="{Binding ListaEventos}" SelectedItem="{Binding EventSelect}" Background="#FF7A7373" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nombre}" ClipboardContentBinding="{x:Null}" Header="Nombre"/>
                 <DataGridTextColumn Binding="{Binding Categoria}" ClipboardContentBinding="{x:Null}" Header="Tipo"/>
                 <DataGridTextColumn Binding="{Binding Descripcion}" ClipboardContentBinding="{x:Null}" Header="Descripcion"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="btnExport" Background="#33a133"  FontWeight="ExtraBlack" Foreground="White" FontSize="14" Content="Exportar a CSV" HorizontalAlignment="Left" Margin="10,250,0,0" VerticalAlignment="Top" Width="136" Height="58"/>
 
     </Grid>
 </Controls:MetroWindow>
